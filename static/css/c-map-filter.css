@@ -1,0 +1,225 @@
+/* Global */
+a {
+    color: #d12121;
+}
+a:hover {
+  color: rgb(184, 19, 33);
+  transition: all 130ms ease-in;
+}
+.c-border-bottom {
+  border-bottom: 1px solid #eee;
+}
+
+.btn-block + .btn-block {
+  margin-top: 0;
+}
+
+.c-map-filter {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  max-height: 100%;
+  overflow: auto;
+  pointer-events: none;
+}
+
+.c-map-filter_visible {
+  pointer-events: auto;
+}
+
+.c-map-filter_visible .c-map-filter-menu {
+  transform: none;
+}
+
+.c-map-filter_animatable .c-map-filter-menu {
+  transition: all 130ms ease-in;
+}
+
+.c-map-filter_visible.c-map-filter_animatable .c-map-filter-menu {
+  transition: all 275ms ease-out;
+}
+
+.c-map-filter-toggle {
+  position: absolute;
+  left: calc(300px + 1.25rem);
+  top: 1.25rem;
+  width: 42px;
+  height: 42px;
+  background: #fff;
+  box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.20);
+  transform: translateX(-300px);
+  pointer-events: auto;
+  z-index: 998;
+  /* Menu above map */
+}
+
+.c-map-filter-toggle:before {
+  content: '';
+  position: absolute;
+  width: 80%;
+  height: 80%;
+  border-radius: 100px;
+  border: 2px solid rgba(0, 0, 0, 0);
+  transform: none;
+  transition: all 130ms ease-in;
+}
+
+.c-map-filter-toggle:hover:before,
+.c-map-filter-toggle:focus:before {
+  border: 2px solid rgba(0, 0, 0, .13);
+  transform: scale(1.75);
+  transition: all 130ms ease-in;
+}
+
+.c-map-filter-toggle:hover,
+.c-map-filter-toggle:focus {
+  color: #d12121;
+  transition: all 130ms ease-in;
+}
+
+.c-map-filter-toggle svg:first-child {
+  display: block;
+}
+
+.c-map-filter-toggle svg:last-child {
+  display: none;
+}
+
+.c-map-filter-toggle_close {
+  transform: none;
+  color: #d12121;
+}
+
+.c-map-filter-toggle_close svg:first-child {
+  display: none;
+}
+
+.c-map-filter-toggle_close svg:last-child {
+  display: block;
+}
+
+.c-map-filter-toggle_close:hover,
+.c-map-filter-toggle_close:focus {
+  color: #000;
+  transition: all 130ms ease-in;
+}
+
+.c-map-filter-toggle_close:before {
+  content: '';
+  border: 2px solid rgba(0, 0, 0, .13);
+  transform: scale(1.75);
+  transition: all 130ms ease-in;
+}
+
+.c-map-filter-toggle_close:hover:before,
+.c-map-filter-toggle_close:focus:before {
+  border: 2px solid rgba(0, 0, 0, 0);
+  transform: 0;
+  transition: all 130ms ease-in;
+}
+
+.c-map-filter-toggle_animatable {
+  transition: all 130ms ease-in;
+}
+
+.c-map-filter-toggle_close.c-map-filter-toggle_animatable {
+  transition: all 275ms ease-out;
+}
+
+.c-map-filter-menu {
+  background-color: #fff;
+  position: relative;
+  max-width: 280px;
+  width: 90%;
+  height: 100%;
+  transform: translateX(-103%);
+  display: flex;
+  flex-direction: column;
+  will-change: transform;
+  pointer-events: auto;
+  z-index: 998;
+  /* Menu above map */
+}
+
+.c-map-filter-menu-open {
+  transform: none;
+  transition: transform 300ms linear;
+}
+
+/* Section */
+.c-map-filter-section {
+  padding: 15px;
+}
+
+.c-map-filter-section-title {
+  color: #adadad;
+  text-transform: uppercase;
+  font-size: 0.75rem;
+  font-weight: bold;
+  margin: 0;
+}
+
+.c-map-filter-section > h2 > span {
+  color: #d12121;
+  font-size: 1rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  padding: 10px 0;
+  display: block;
+}
+
+
+/* Basemap */
+.c-map-filter-basemap {
+  padding: 0.5rem 0 0.25rem;
+  position: relative;
+}
+
+.c-map-filter-basemap li {
+  height: 40px;
+  width: 40px;
+  background: greenyellow;
+  border: 1px solid #eee;
+  cursor: pointer;
+}
+
+.c-map-filter-basemap li:nth-child(1) {
+  background: url('../img/Esri_WorldTopoMap.png') 0 0 no-repeat;
+  background-size: 100%;
+}
+
+.c-map-filter-basemap li:nth-child(2) {
+  background: url('../img/Mapbox_Satellite_Streets.png') 0 0 no-repeat;
+  background-size: 100%;
+}
+
+.c-map-filter-basemap li:nth-child(3) {
+  background: url('../img/CartoDB_Positron.png') 0 0 no-repeat;
+  background-size: 100%;
+}
+
+.c-map-filter-basemap li:nth-child(4) {
+  background: url('../img/Esri_WorldStreetMap.png') 0 0 no-repeat;
+  background-size: 100%;
+}
+.c-map-filter-basemap li:nth-child(5) {
+  background: url('../img/OpenStreetMap_France.png') 0 0 no-repeat;
+  background-size: 100%;
+}
+.c-map-filter-basemap li:nth-child(6) {
+  background: url('../img/OpenStreetMap_HOT.png') 0 0 no-repeat;
+  background-size: 100%;
+}
+
+
+.c-map-filter-basemap .selected-layer {
+  border: 2px solid #d12121;
+}
+
+.circle-config-panel {
+  margin-left: -15px;
+  margin-right: -15px;
+  padding: 15px;
+  background: #fafafa;
+}

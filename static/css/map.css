@@ -1,0 +1,144 @@
+.leaflet-top, .leaflet-bottom{
+  z-index: 450;
+}
+.legend-button{
+  float: right;
+  margin-left: 1em;
+  margin-top:1em;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background-color: white;
+  box-shadow: 0 0 10px 0 rgba(0,0,0,.2);
+}
+.legend-button:hover{
+  box-shadow: 0 0 10px 0 rgba(0,0,0,.2), 0 0 15px 0 rgba(0,0,0,.5);
+}
+.legend-panel{
+  display: none;
+  float: left;
+  margin: 0;
+  height:86vh;
+  width: 20em;
+  background-color: white;
+  text-align: center;
+}
+.closed{
+  display: none;
+}
+
+.legend-title{
+  border-bottom: 1px solid #eee;
+  color: #d12121;
+  font-size: 1.2em;
+}
+.baselayers{
+  margin-top: 10px;
+  text-align: center;
+  color: #adadad;
+  font-size: 1.3em;
+}
+.baselayers-title{
+  margin: auto;
+  text-align: center;
+  height: 50%;
+  background-color: red;
+}
+.baselayer-icon{
+  border-radius: 50%;
+  border: 1px solid #adadad;
+  cursor: pointer;
+  margin: 5px;
+}
+.selected-layer{
+  border: 2px solid #d12121;
+}
+.map-legend{
+  margin-top: 10px;
+}
+.map-legend-title{
+  margin-top: 10px;
+  text-align: center;
+  color: #adadad;
+  font-size: 1.3em;
+}
+.legend-circle{
+  display: none;
+}
+#circles-container{
+  /* margin-top: 5px;
+  margin-bottom: 10px;
+  text-align: center; */
+}
+.legendValue {
+  position: absolute;
+  font-size: 0.7em;
+  right: 40px;
+}
+.legend-subtitle{
+  margin-bottom: 10px;
+  color: #000;
+  font-size: 0.8rem;
+}
+.minicolors-theme-default .minicolors-swatch{
+  height: 30px;
+  width: 30px;
+  border-color: black;
+}
+.treshold{
+  display: flex;
+  vertical-align: middle;
+}
+.treshold-text{
+  margin-top: 10px;
+  font-size: 0.8rem;
+}
+.popup-span{
+  font-weight: bold;
+}
+.swatch-colorpicker{
+  padding-left: 10px;
+}
+.swatch-label{
+  padding-left: 0px;
+  padding-top: 10px;
+}
+.swatch-form{
+  margin-bottom: 0px;
+}
+.legend-modifier-toggl{
+  display:inline-block;
+}
+#saveTresholds{
+  margin-top: 10px;
+}
+.treshold-square{
+  height: 100%;
+  width:30px;
+  border: 1px solid black;
+  background-color: red;
+  float: right;
+}
+.village-label{
+  font-weight: bold;
+  position: relative;
+  display: inline-block;
+  white-space: nowrap;
+  margin: 3px;
+  padding: 3px;
+  text-shadow: 2px 0 0 #fff, -2px 0 0 #fff, 0 2px 0 #fff, 0 -2px 0 #fff, 1px 1px #fff, -1px -1px 0 #fff, 1px -1px 0 #fff, -1px 1px 0 #fff;
+}
+.leaflet-div-icon{
+  background: none;
+  border: none;
+}
+.minicolors-swatch{
+  cursor: pointer;
+}
+.treshold-square{
+  height: 100%;
+  width:30px;
+  border: 1px solid black;
+  background-color: #B4B5B5;
+  float: right;
+}

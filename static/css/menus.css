@@ -1,0 +1,128 @@
+/* LEFT MENU APPARENCE AND CONTENT */
+.left-menu{
+  width: 60px;
+  height:100vh;
+  border-right: 1px solid #eeeeee;
+}
+.left-menu-head{
+  height: 60px;
+}
+.left-menu-box{
+  height: 60px;
+  border-top: 1px solid #eeeeee;
+  padding: 10px;
+  cursor: pointer;
+  padding-top: 15px;
+  transition: all 1ms ease-in;
+}
+.left-menu-box:hover {
+  color: #dc3545;
+  transition: all 130ms ease-in;
+}
+.inactive-icon{
+  display: none;
+}
+#admin-left-menu{
+  display: none;
+}
+
+.connect {
+  max-width: 60px;
+  border-left: 1px solid #eee;
+  cursor: pointer;
+  color: #ccc;
+  transition: all 250ms ease-in;
+}
+.connect:hover, .connect:focus, .connect:visited {
+  color: white;
+  background-color: #dc3545;
+  transition: all 250ms ease-in;
+}
+
+/* CONTAINER DIV */
+.content{
+  width: calc(100% - 60px);
+  position: absolute;
+  left: 60px;
+  top: 0;
+  height: 100vh;
+  background: url("../img/pattern-msf-min.png") repeat 0 0;
+}
+
+/* TOP MENU APPARENCE AND CONTENT */
+.top-menu{
+  border-bottom: 1px solid #eee;
+  font-size: 1.25rem;
+  line-height: 60px;
+}
+.app-subtitle{
+  color: #adadad;
+  padding: 0 0 0 .5rem;
+}
+.select-menu{
+  background: #fafafa;
+  display: flex;
+  height: 79px;
+  border-bottom: 1px solid #eee;
+}
+
+/* ADMIN DIV */
+#admin-side-bar{
+  display: none;
+  margin-top: 0;
+  width: 40%;
+  height:85vh;
+  position: absolute;
+  z-index: 600;
+  border-right: 1px solid #eeeeee;
+  background-color: white;
+}
+
+#offline-side-bar{
+  display: none;
+  margin-top: 0;
+  width: 40%;
+  height:85vh;
+  position: absolute;
+  z-index: 600;
+  border-right: 1px solid #eeeeee;
+  background-color: white;
+}
+
+#map{
+  background-color: #CFD0D0;
+}
+#charts{
+  background-color: #fff;
+}
+#map h1, #charts h1{
+  margin: auto; /* Important */
+  text-align: center;
+}
+
+.collapse-config.disabled {
+  color: grey;
+  transition: all 1ms ease-in;
+}
+
+#selectors .dropdown-toggle {
+  background-color: #fff;
+  border: 1px solid #eee;
+}
+
+.app-content {
+  position: relative;
+  height: calc(100vh - 140px);
+}
+#tableContainer{
+  display: none;
+}
+.userguide{
+  position: absolute;
+  bottom: 0;
+  margin-left: 5px !important;
+}
+.app-logo{
+  height: 40px;
+  /* margin-top: 5px; */
+}

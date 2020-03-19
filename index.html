@@ -1,0 +1,396 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr" xmlns:mso="urn:schemas-microsoft-com:office:office" xmlns:msdt="uuid:C2F41010-65B3-11d1-A29F-00AA00C14882">
+
+  <head>
+    <meta charset="utf-8">
+    <title>EPIMAP</title>
+    <link rel='icon' href='static/img/favicon.ico' type='image/x-icon'/ >
+    <!-- External libs CSS -->
+    <link href="libs/bootstrap/bootstrap.css" rel="stylesheet" type="text/css" />
+    <link href="libs/bootstrap-select/bootstrap-select.css" rel="stylesheet" type="text/css" />
+    <link href="libs/nouislider/nouislider.min.css" rel="stylesheet" type="text/css" />
+    <link rel="stylesheet" href="libs/leaflet/leaflet.css">
+    <link rel="stylesheet" href="libs/ionicons/ionicons.css">
+    <link rel="stylesheet" href="libs/minicolors/jquery.minicolors.css">
+    <link rel="stylesheet" href="libs/bootstrap-toggl/bootstrap-toggle.min.css">
+    <link rel="stylesheet" href="libs/bootstrap-table/bootstrap-table.css">
+    <!-- Application CSS -->
+    <link rel="stylesheet" href="static/css/loader.css">
+    <link rel="stylesheet" href="static/css/menus.css">
+    <link rel="stylesheet" href="static/css/c-map-filter.css">
+    <link rel="stylesheet" href="static/css/filtering.css">
+    <link rel="stylesheet" href="static/css/map.css">
+    <link rel="stylesheet" href="static/css/charts.css">
+    <link rel="stylesheet" href="static/css/administration.css">
+
+    <script src="libs/jquery.js" type="text/javascript"></script>
+    <script src="libs/popper.js" type="text/javascript"></script>
+    <script src="libs/bootstrap/bootstrap.js" type="text/javascript"></script>
+    <script src="libs/bootstrap-table/bootstrap-table.js"></script>
+    <script src="libs/bootstrap-notify.js" type="text/javascript"></script>
+    <script src="libs/nouislider/nouislider.min.js" type="text/javascript"></script>
+    <script src="libs/leaflet/leaflet.js"></script>
+    <script src="libs/leaflet-image.js"></script>
+    <script src="libs/ESRI_leaflet.js"></script>
+    <script src="libs/alasql.js"></script>
+    <script src="libs/turf.js"></script>
+    <script src="libs/jspdf.js"></script>
+    <script src="libs/html2canvas.js"></script>
+    <script src="libs/charts.js"></script>
+    <script src="libs/minicolors/jquery.minicolors.js"></script>
+    <script src="libs/papaparse.js"></script>
+    <script src="libs/watch.js"></script>
+    <script src="libs/bootstrap-toggl/bootstrap-toggle.min.js"></script>
+    <script src="libs/Leaflet.LayerGroup.Collision.js"></script>
+    <script src="libs/bootstrap-select/bootstrap-select.js" type="text/javascript"></script>
+  
+<!--[if gte mso 9]><xml>
+<mso:CustomDocumentProperties>
+<mso:_dlc_DocId msdt:dt="string">DOCID-1994846373-60604</mso:_dlc_DocId>
+<mso:_dlc_DocIdItemGuid msdt:dt="string">3ab60cba-60d9-4283-96f1-b0d9ae180e7c</mso:_dlc_DocIdItemGuid>
+<mso:_dlc_DocIdUrl msdt:dt="string">https://msfintl.sharepoint.com/sites/msfintlcommunities/GIS/_layouts/15/DocIdRedir.aspx?ID=DOCID-1994846373-60604, DOCID-1994846373-60604</mso:_dlc_DocIdUrl>
+</mso:CustomDocumentProperties>
+</xml><![endif]-->
+</head>
+
+  <body>
+    <!-- LOADER -->
+    <div class="overlay-loader">
+      <div class="cssload-container w-100">
+        <div class="cssload-whirlpool"></div>
+      </div>
+      <div class="text-center mt-5 loading-text">
+        <h6 id="loading-text">Initialising, please wait.</h6>
+      </div>
+
+    </div>
+    <!-- LOADER -->
+
+    <!-- LEFT MENU - CONFIGURED IN LEFTMENU.JS -->
+    <div class="left-menu bg-white text-center">
+      <div class="left-menu-head">
+        <!-- <img src="static/img/logo-msf.svg" alt="MSF Logo" class="svg-leftmenu pt-2"> -->
+      </div>
+      <div class="left-menu-box click-change" id="map-left-menu">
+        <img class="second-icon inactive-icon" src="static/img/map-icon.svg" alt="Map">
+        <img src="static/img/map-icon-active.svg" alt="Map">
+      </div>
+      <div class="left-menu-box click-change" id="charts-left-menu">
+        <img class="second-icon inactive-icon" src="static/img/charts-icon.svg" alt="Charts">
+        <img src="static/img/charts-icon-active.svg" alt="Charts">
+      </div>
+      <div class="left-menu-box" id="pdf-left-menu">
+        <svg width="28px" height="28px" fill="currentColor">
+          <use xlink:href="static/img/sprite.svg#c-pdf"></use>
+        </svg>
+      </div>
+      <div class="left-menu-box" id="admin-left-menu">
+        <svg width="26px" height="26px" fill="currentColor">
+          <use xlink:href="static/img/sprite.svg#c-admin"></use>
+        </svg>
+      </div>
+      <div class="left-menu-box userguide" id="user-left-menu" data-toggle="tooltip" data-placement="right" title="Epimap Informations and userguide">
+          <svg width="26px" height="26px" fill="currentColor">
+            <use xlink:href="static/img/sprite.svg#c-user"></use>
+          </svg>
+      </div>
+    </div>
+    <!-- END LEFT MENU - CONFIGURED IN LEFTMENU.JS -->
+    <div class="content container-fluid">
+      <div class="row">
+        <!-- TOP MENU -->
+        <div class="col-12 top-menu bg-white">
+          <div class="row">
+            <div class="col-9">
+              <img src="static/img/gis_logo.png" alt="MSF Logo" class="app-logo">
+              <span class="app-title">Situation épidemiologique de la rougeole pour les zones de santé Businga et bosomanzi</span>
+              <span class="app-subtitle" id="app-subtitle"></span>
+            </div>
+            <div class="col-3 text-right">
+              <label class="form-check-label" for="sliderMode">Time Slider mode</label>
+              <input data-on="Range" data-off="Unique" type="checkbox" name="inlineRadioOptions" id="sliderMode" value="labels" checked data-toggle="toggle" data-onstyle="danger" data-offstyle="secondary">
+            </div>
+          </div>
+        </div>
+        <!-- END TOP MENU -->
+
+        <div class="col-12 select-menu">
+          <!-- SELECTOR FILTERS -->
+          <div class="select-content col-6 row align-items-center" id="selectors">
+            <div class="col-sm-3">
+              <select class="selectpicker form-control" title="Secteur" id="secteur">
+                <!-- FILLED BY INIT.JS -->
+              </select>
+            </div>
+            <div class="col-sm-3">
+              <select class="selectpicker form-control" title="Maladie" id="disease">
+                <!-- FILLED BY INIT.JS -->
+              </select>
+            </div>
+            <div class="col-sm-3">
+              <select class="selectpicker form-control" title="Indicateur" id="indicator">
+                <!-- FILLED BY INIT.JS -->
+              </select>
+            </div>
+            <div class="col-sm-3">
+              <select class="selectpicker form-control" title="Intervalle" id="intervalle">
+                <!-- FILLED BY INIT.JS -->
+              </select>
+            </div>
+          </div>
+          <!-- END SELECTOR FILTERS -->
+          <!-- SLIDER -->
+          <div class="slider-content col-6 row align-items-center">
+            <div class="col move-range-left">
+              <div class="row align-items-center justify-content-around">
+                <div class="prev-date" id="prevStartDate"></div>
+                <span class="daterange-start">00.00.0000</span>
+                <div class="next-date" id="nextStartDate"></div>
+              </div>
+            </div>
+            <div class="col" id="slider"></div>
+            <div class="col move-range-right">
+              <div class="row align-items-center justify-content-around">
+                <div class="prev-date" id="prevEndDate"></div>
+                <span class="daterange-end">00.00.0000</span>
+                <div class="next-date" id="nextEndDate"></div>
+              </div>
+            </div>
+          </div>
+          <!-- END SLIDER -->
+        </div>
+      </div>
+
+      <!-- CENTRAL DIV -->
+      <div class="row app-content">
+        <div class="c-map-filter-toggle rounded-circle d-flex justify-content-center align-items-center c-map-filter-toggle_animatable">
+          <svg width="18px" height="18px" fill="currentColor">
+            <use xlink:href="static/img/sprite.svg#c-filter"></use>
+          </svg>
+          <svg width="13px" height="13px" fill="currentColor">
+            <use xlink:href="static/img/sprite.svg#c-close"></use>
+          </svg>
+        </div>
+        <div class="c-map-filter">
+          <div class="c-map-filter-menu c-border-right c-custom-scrollbar">
+            <div class="c-map-filter-section c-border-bottom">
+              <h2><span>Properties</span></h2>
+              <h2 class="c-map-filter-section-title">Basemaps</h2>
+              <ul class="c-map-filter-basemap d-flex justify-content-between flex-wrap list-unstyled m-0">
+                <li data-toggle="tooltip" data-placement="top" title="Topographic (En)" class="rounded-circle active baselayer-icon selected-layer" id="esri"></li>
+                <li data-toggle="tooltip" data-placement="top" title="Satellite" class="rounded-circle baselayer-icon" id="satellite"></li>
+                <li data-toggle="tooltip" data-placement="top" title="Light (En)" class="rounded-circle baselayer-icon" id="light"></li>
+                <li data-toggle="tooltip" data-placement="top" title="English" class="rounded-circle baselayer-icon" id="esriStreet"></li>
+                <li data-toggle="tooltip" data-placement="top" title="OSM (Fr)" class="rounded-circle baselayer-icon" id="osm"></li>
+                <li data-toggle="tooltip" data-placement="top" title="Local languages" class="rounded-circle baselayer-icon" id="hot"></li>
+              </ul>
+              <h2 class="c-map-filter-section-title mt-2">Labels</h2>
+              <div class="form-check mt-3">
+                <input class="form-check-input" type="checkbox" name="inlineRadioOptions" id="labelsChekbox" value="labels" checked data-toggle="toggle" data-onstyle="danger" data-size="sm">
+                <label class="form-check-label" for="labelsChekbox" id="level_labels"></label>
+              </div>
+            </div>
+            <div class="c-map-filter-section c-border-bottom">
+              <h2 class="c-map-filter-section-title" id="legendModifier">Legend
+                  <a class="collapse-config" data-toggle="collapse" href="#collapseConfig" role="button" aria-expanded="false" aria-controls="collapseConfig" rel="tooltip" data-original-title='Modify map items'>
+                    <svg width="34px" height="34px" fill="currentColor">
+                      <use xlink:href="static/img/sprite.svg#c-config"></use>
+                    </svg>
+                  </a>
+              </h2>
+              <!-- MODIFIER LEGEND -->
+              <div class="collapse circle-config-panel" id="collapseConfig">
+                <div class="legend-circle">
+                  <div class="text-left legend-subtitle">Modify circles style</div>
+                  <div class="btn-group btn-group-sm btn-block mb-2" role="group" aria-label="Basic example">
+                    <button type="button" class="btn btn-outline-dark btn-block" id="circleSmaller">Smaller</button>
+                    <button type="button" class="btn btn-outline-dark btn-block" id="circleBigger">Bigger</button>
+                  </div>
+                  <div class="treshold">
+                    <div class="text-center mr-4">
+                      <div id="nodata-inside-color"></div>
+                    </div>
+                    <div class="treshold-text">No data</div>
+                  </div>
+                  <div class="treshold">
+                    <div class="text-center mr-4">
+                      <div id="circle-inside-color"></div>
+                    </div>
+                    <div class="treshold-text">Fill</div>
+                  </div>
+                  <div class="treshold">
+                    <div class="text-center mr-4">
+                      <div id="circle-outside-color"></div>
+                    </div>
+                    <div class="treshold-text">Border</div>
+                  </div>
+                  <div class="admin-save-button">
+                    <button class="btn btn-danger btn-block" id="saveCirclesChanges">Save</button>
+                  </div>
+                </div>
+                <div class="legend-rectangle small" id="legend-rectangle-modifier">
+                  <!-- FILLED BY setLegend() -->
+                </div>
+              </div>
+              <!-- /MODIFIER LEGEND -->
+              <!-- LEGEND -->
+              <div class="map-legend">
+                <div id="legendContainer">
+                  <div class="legend-circle">
+                    <div class="legend-circle-container">
+                      <div class="legend-subtitle" id="circle-title"></div>
+                      <div id="circles-container" class="text-center"></div>
+                      <div class="treshold">
+                        <div class="col-5 text-right">
+                          <div class="treshold-square"></div>
+                        </div>
+                        <div class="col-7 treshold-text text-left">No data</div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="legend-rectangle">
+                    <div class="legend-tresholds">
+                      <div class="legend-subtitle" id="rectangle-title"></div>
+                      <div class="col-12" id="legend-rectangle-container">
+                        <!-- FILLED BY setLegend() -->
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <!-- /LEGEND -->
+            </div>
+
+          </div>
+        </div>
+
+        <div class="col-6" id="map"></div>
+        <div class="col-6" id="charts">
+
+          <div class="col-12">
+            <div class="col-3 sectorlist text-sectorlist">
+              Sectors:
+            </div>
+            <div class="col-6 sectorlist" id="sectorSelector">
+              <select class="selectpicker form-control bg-white" title="Secteur" data-live-search="true" multiple id="sectorlist">
+                <!-- FILLED BY setAreaList() WHEN GEOGRAPHIC DROPDOWN LIST VALUE IS CHANGING-->
+              </select>
+            </div>
+            <div class="col-2 sectorlist">
+              <button type="button" class="btn btn-danger" id="launchAnalyzer">Filter</button>
+            </div>
+          </div>
+          <div class="col-12 text-center charts" id="chartsContainer">
+            <div class="col-12 firstChart">
+              <p class="chart-title" id="chart-title1">Cases and Attack rate</p>
+              <img src="static/img/legend_1.png" alt="" class="legend" id="chart-legend1">
+            </div>
+            <div class="col-12 chartDiv firstChart">
+              <canvas id="chart1"></canvas>
+            </div>
+            <div class="col-12 secondChart">
+              <p class="chart-title" id="chart-title2">Deaths and Lethality rate</p>
+              <img src="static/img/legend_2.png" alt="" class="legend" id="chart-legend2">
+            </div>
+            <div class="col-12 chartDiv secondChart">
+              <canvas id="chart2"></canvas>
+            </div>
+          </div>
+          <div class="col-12 text-center charts" id="tableContainer">
+              <table class="table table-striped" id="table-data">
+                <thead>
+                  <tr>
+                    <th scope="col" id="table-area-title">Municipality</th>
+                    <th scope="col" id="table-disease-title">Patients</th>
+                  </tr>
+                </thead>
+                <tbody id="table-body">
+                </tbody>
+              </table>
+          </div>
+        </div>
+      </div>
+      <!-- END CENTRAL DIV -->
+
+    </div>
+
+    <!-- PDF MODAL -->
+    <div class="modal fade" id="modalpdf" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel1" aria-hidden="true">
+      <div class="modal-dialog modal-lg" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLabel1">PDF Export</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+            <form>
+              <div class="form-group">
+                <label for="recipient-name" class="col-form-label">Title</label>
+                <input type="text" class="form-control" id="pdf-title">
+              </div>
+              <div class="form-group">
+                <label for="message-text" class="col-form-label">Sources (optionnal)</label>
+                <textarea class="form-control" id="pdf-sources"></textarea>
+              </div>
+            </form>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+            <button type="button" class="btn btn-danger" id="launchPDF">Generate PDF</button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- /PDF MODAL -->
+    <!-- INFO MODAL -->
+    <div class="modal fade" id="modalinfo" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel1" aria-hidden="true">
+      <div class="modal-dialog modal-lg" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLabel1">Epimap Informations</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+            <div class="col-12" id="info-commentary"></div>
+            <hr/>
+            <div class="col-12 text-center">
+              <strong>User documentation: </strong><a href="static/Disease outbreak.pdf" target="_blank">Click to open the file</a>
+            </div>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script src="scripts/general_functions.js"></script>
+    <!-- DATA INJECTION -->
+    <script src="data/configuration.js"></script>
+    <!-- EXPORT PDF AND ZIP -->
+    <script src="scripts/export/images64.js"></script>
+    <script src="scripts/export/createPDF.js"></script>
+    <!-- /EXPORT PDF AND ZIP -->
+    <!-- UI BEHAVIOR-->
+    <script src="scripts/interface/leftmenu.js"></script>
+    <script src="scripts/interface/map_panel.js"></script>
+    <!-- /UI BEHAVIOR-->
+    <!-- MODULES CONFIGURATION -->
+    <script src="scripts/selection-filter/range_slider.js"></script>
+    <script src="scripts/selection-filter/unique_slider.js"></script>
+    <script src="scripts/selection-filter/selectors.js"></script>
+    <script src="scripts/map-and-charts/map_functions.js"></script>
+    <script src="scripts/map-and-charts/map_legend.js"></script>
+    <script src="scripts/map-and-charts/config_map.js"></script>
+    <script src="scripts/map-and-charts/charts.js"></script>
+    <script src="scripts/map-and-charts/display_data.js"></script>
+    <!-- /MODULES CONFIGURATION -->
+    <!-- INJECTING DATA & CONFIGURE APP-->
+    <script src="scripts/initApp.js"></script>
+  </body>
+
+</html>
