@@ -129,6 +129,45 @@ level1_name,level1_pcode,level3_name,level3_pcode,level2_name,level2_pcode,year,
 ,,Bombwa,cod011,Businga,cod200299,2020,10,3,0.03,0
 ,,Nbakpo,cod049,Businga,cod200299,2020,10,7,0.06,0
 ,,Bobiti,cod006,Businga,cod200299,2020,10,6,0.08,0
+,,Cs Urbain,cod026,Businga,cod200299,2020,11,40,0.16,1
+,,Cs Cite 1,cod027,Businga,cod200299,2020,11,11,0.06,0
+,,Cs Cite 2,cod028,Businga,cod200299,2020,11,28,0.24,0
+,,Movangusa,cod048,Businga,cod200299,2020,11,23,0.20,0
+,,Monveda,cod045,Businga,cod200299,2020,11,21,0.29,0
+,,Kondo,cod036,Businga,cod200299,2020,11,14,0.11,0
+,,Edungu,cod032,Businga,cod200299,2020,11,10,0.13,0
+,,Bopili,cod019,Businga,cod200299,2020,11,46,0.92,0
+,,Songbolo,cod050,Businga,cod200299,2020,11,64,0.98,0
+,,Bogboan,cod007,Businga,cod200299,2020,11,16,0.17,0
+,,Bombwa,cod011,Businga,cod200299,2020,11,7,0.07,0
+,,Nbakpo,cod049,Businga,cod200299,2020,11,6,0.05,0
+,,Bobiti,cod006,Businga,cod200299,2020,11,14,0.19,0
+,,Cs Urbain,cod026,Businga,cod200299,2020,12,76,0.31,1
+,,Cs Cite 1,cod027,Businga,cod200299,2020,12,57,0.32,0
+,,Cs Cite 2,cod028,Businga,cod200299,2020,12,88,0.77,0
+,,Movangusa,cod048,Businga,cod200299,2020,12,57,0.50,0
+,,Monveda,cod045,Businga,cod200299,2020,12,33,0.45,0
+,,Kondo,cod036,Businga,cod200299,2020,12,11,0.09,0
+,,Edungu,cod032,Businga,cod200299,2020,12,3,0.04,0
+,,Bopili,cod019,Businga,cod200299,2020,12,68,1.37,0
+,,Songbolo,cod050,Businga,cod200299,2020,12,7,0.11,0
+,,Bogboan,cod007,Businga,cod200299,2020,12,28,0.29,0
+,,Bombwa,cod011,Businga,cod200299,2020,12,24,0.25,0
+,,Nbakpo,cod049,Businga,cod200299,2020,12,33,0.28,0
+,,Bobiti,cod006,Businga,cod200299,2020,12,25,0.34,0
+,,Cs Urbain,cod026,Businga,cod200299,2020,13,45,0.18,1
+,,Cs Cite 1,cod027,Businga,cod200299,2020,13,31,0.17,0
+,,Cs Cite 2,cod028,Businga,cod200299,2020,13,27,0.24,0
+,,Movangusa,cod048,Businga,cod200299,2020,13,95,0.83,0
+,,Monveda,cod045,Businga,cod200299,2020,13,35,0.48,0
+,,Kondo,cod036,Businga,cod200299,2020,13,16,0.13,0
+,,Edungu,cod032,Businga,cod200299,2020,13,10,0.13,0
+,,Bopili,cod019,Businga,cod200299,2020,13,34,0.68,0
+,,Songbolo,cod050,Businga,cod200299,2020,13,37,0.57,0
+,,Bogboan,cod007,Businga,cod200299,2020,13,48,0.50,0
+,,Bombwa,cod011,Businga,cod200299,2020,13,35,0.36,0
+,,Nbakpo,cod049,Businga,cod200299,2020,13,16,0.14,0
+,,Bobiti,cod006,Businga,cod200299,2020,13,12,0.16,0
 ,,Bokapo,cod008,Boso Manzi,cod200185,2019,26,0,0,0
 ,,Bolombo,cod010,Boso Manzi,cod200185,2019,26,0,0,0
 ,,Bomoye,cod012,Boso Manzi,cod200185,2019,26,0,0,0
@@ -758,3 +797,37 @@ level1_name,level1_pcode,level3_name,level3_pcode,level2_name,level2_pcode,year,
 ,,Mbangu,cod042,Boso Manzi,cod200185,2020,10,0,0,0
 ,,Mongili,cod044,Boso Manzi,cod200185,2020,10,6,0.08,0
 ,,Monzelenge,cod047,Boso Manzi,cod200185,2020,10,2,0.02,0
+,,Bokapo,cod008,Boso Manzi,cod200185,2020,11,17,0.22,0
+,,Bolombo,cod010,Boso Manzi,cod200185,2020,11,8,0.08,0
+,,Bomoye,cod012,Boso Manzi,cod200185,2020,11,14,0.15,0
+,,Bongonza,cod016,Boso Manzi,cod200185,2020,11,47,0.68,0
+,,Boso dua,cod020,Boso Manzi,cod200185,2020,11,5,0.04,0
+,,Boso libondo,cod021,Boso Manzi,cod200185,2020,11,10,0.14,0
+,,Boso manzi,cod022,Boso Manzi,cod200185,2020,11,54,0.60,0
+,,Boso modjebo,cod023,Boso Manzi,cod200185,2020,11,5,0.02,0
+,,Boyange Motima,cod024,Boso Manzi,cod200185,2020,11,20,0.25,0
+,,Ebambe,cod030,Boso Manzi,cod200185,2020,11,1,0.01,0
+,,Gumba,cod035,Boso Manzi,cod200185,2020,11,0,0.00,0
+,,Liboko,cod037,Boso Manzi,cod200185,2020,11,2,0.03,0
+,,Makao,cod040,Boso Manzi,cod200185,2020,11,4,0.06,0
+,,Masanga,cod041,Boso Manzi,cod200185,2020,11,3,0.03,0
+,,Mbangu,cod042,Boso Manzi,cod200185,2020,11,5,0.06,0
+,,Mongili,cod044,Boso Manzi,cod200185,2020,11,0,0.00,0
+,,Monzelenge,cod047,Boso Manzi,cod200185,2020,11,5,0.07,0
+,,Bokapo,cod008,Boso Manzi,cod200185,2020,12,45,0.59,0
+,,Bolombo,cod010,Boso Manzi,cod200185,2020,12,18,0.17,0
+,,Bomoye,cod012,Boso Manzi,cod200185,2020,12,2,0.02,0
+,,Bongonza,cod016,Boso Manzi,cod200185,2020,12,29,0.42,0
+,,Boso dua,cod020,Boso Manzi,cod200185,2020,12,20,0.16,0
+,,Boso libondo,cod021,Boso Manzi,cod200185,2020,12,23,0.31,0
+,,Boso manzi,cod022,Boso Manzi,cod200185,2020,12,38,0.42,0
+,,Boso modjebo,cod023,Boso Manzi,cod200185,2020,12,13,0.06,0
+,,Boyange Motima,cod024,Boso Manzi,cod200185,2020,12,21,0.26,0
+,,Ebambe,cod030,Boso Manzi,cod200185,2020,12,1,0.01,0
+,,Gumba,cod035,Boso Manzi,cod200185,2020,12,9,0.10,0
+,,Liboko,cod037,Boso Manzi,cod200185,2020,12,3,0.04,0
+,,Makao,cod040,Boso Manzi,cod200185,2020,12,15,0.22,0
+,,Masanga,cod041,Boso Manzi,cod200185,2020,12,2,0.02,0
+,,Mbangu,cod042,Boso Manzi,cod200185,2020,12,0,0.00,0
+,,Mongili,cod044,Boso Manzi,cod200185,2020,12,6,0.08,0
+,,Monzelenge,cod047,Boso Manzi,cod200185,2020,12,2,0.03,0
